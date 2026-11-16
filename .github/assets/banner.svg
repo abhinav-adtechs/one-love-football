@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-label="One Love Football — From WhatsApp roster to settled turf bill.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070a12"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="160" cy="40" r="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22C55E" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#22C55E" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="1180" cy="360" r="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FACC15" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#FACC15" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="motif" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22C55E"/>
+      <stop offset="1" stop-color="#FACC15"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.045"/>
+    </pattern>
+    <clipPath id="card"><rect width="1280" height="360" rx="28"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="1280" height="360" fill="url(#bg)"/>
+    <rect width="1280" height="360" fill="url(#grid)"/>
+    <rect width="1280" height="360" fill="url(#glowA)">
+      <animate attributeName="opacity" values="0.75;1;0.75" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <rect width="1280" height="360" fill="url(#glowB)"/>
+
+    <!-- MOTIF: a five-a-side pitch seen from above, with a pass curling towards the ball. -->
+    <g id="motif-group">
+      <g fill="#ffffff" fill-opacity="0.025"><rect x="884.0" y="82" width="38.2" height="196"/><rect x="960.5" y="82" width="38.2" height="196"/><rect x="1037.0" y="82" width="38.2" height="196"/><rect x="1113.5" y="82" width="38.2" height="196"/></g>
+      <g fill="none" stroke="url(#motif)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+        <rect x="884" y="82" width="306" height="196" rx="8"/>
+        <line x1="1037.0" y1="82" x2="1037.0" y2="278"/>
+        <circle cx="1037.0" cy="180.0" r="30"/>
+        <rect x="884" y="130.0" width="46" height="100" stroke-opacity="0.8"/>
+        <rect x="1144" y="130.0" width="46" height="100" stroke-opacity="0.8"/>
+        <rect x="884" y="158.0" width="16" height="44" stroke-opacity="0.6"/>
+        <rect x="1174" y="158.0" width="16" height="44" stroke-opacity="0.6"/>
+        <path d="M930 162.0 A 22 22 0 0 1 930 198.0" stroke-opacity="0.6"/>
+        <path d="M1144 162.0 A 22 22 0 0 0 1144 198.0" stroke-opacity="0.6"/>
+        <rect x="875" y="166.0" width="9" height="28" rx="2" stroke-opacity="0.7"/>
+        <rect x="1190" y="166.0" width="9" height="28" rx="2" stroke-opacity="0.7"/>
+      </g>
+      <circle cx="1037.0" cy="180.0" r="3" fill="#22C55E"/>
+      <path d="M954 244 C 1014 158, 1070 92, 1116 134" fill="none" stroke="#FACC15" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.85"/>
+      <circle cx="1116" cy="134" r="16" fill="#FACC15" fill-opacity="0.18">
+        <animate attributeName="r" values="12;19;12" dur="3.2s" repeatCount="indefinite"/>
+        <animate attributeName="fill-opacity" values="0.3;0.06;0.3" dur="3.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1116" cy="134" r="8" fill="#f8fafc"/>
+      <circle cx="1116" cy="134" r="3" fill="#0f172a"/>
+      <circle cx="954" cy="244" r="5" fill="#22C55E"/>
+      <text x="880" y="312" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" fill="#94a3b8" letter-spacing="1">roster · turf · dues · settled</text>
+    </g>
+  </g>
+
+  <text x="80" y="168" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="80" font-weight="800" letter-spacing="-2" fill="url(#title)">One Love Football</text>
+  <text x="84" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="27" font-weight="500" fill="#cbd5e1">From WhatsApp roster to settled turf bill.</text>
+
+  <!-- CHIPS: one <g> per chip; width = chars*10.85 + 32; 14px gap between chips -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#e2e8f0">
+    <g transform="translate(84 256)">
+      <rect width="162" height="38" rx="19" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.16"/>
+      <text x="16" y="25">paste roster</text>
+    </g>
+    <g transform="translate(260 256)">
+      <rect width="140" height="38" rx="19" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.16"/>
+      <text x="16" y="25">split turf</text>
+    </g>
+    <g transform="translate(414 256)">
+      <rect width="140" height="38" rx="19" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.16"/>
+      <text x="16" y="25">track dues</text>
+    </g>
+    <g transform="translate(568 256)">
+      <rect width="206" height="38" rx="19" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.16"/>
+      <text x="16" y="25">react + supabase</text>
+    </g>
+  </g>
+
+  <rect x="0.5" y="0.5" width="1279" height="359" rx="28" fill="none" stroke="#ffffff" stroke-opacity="0.1"/>
+</svg>
