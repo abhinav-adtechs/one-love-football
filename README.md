@@ -201,7 +201,7 @@ npm run dev                     # http://localhost:5173
 
 ### Set up Supabase
 
-1. **Schema.** In the SQL editor, run every file in [`supabase/migrations/`](supabase/migrations) in order, `001` to `017`. (`supabase/schema.sql` is `001` to `014` in one file; if you use it, run `015`, `016` and `017` after it.)
+1. **Schema.** In the SQL editor, run every file in [`supabase/migrations/`](supabase/migrations) in order, `001` to `018`. (`supabase/schema.sql` is `001` to `014` in one file; if you use it, run `015` to `018` after it.)
 2. **Phone sign-in.** Authentication → Providers → **Phone**: turn it on and connect an SMS provider that Supabase supports. Sign-in sends a 6-digit code to a `+91` number.
 3. **Live notifications.** Add the `notifications` table to Realtime (Database → Publications → `supabase_realtime`). Without it the bell still works, but only updates on reload.
 4. **Your first admin.** Sign in once so your profile is created, then in the SQL editor:
@@ -224,7 +224,7 @@ Full walkthrough, including deploying to Vercel, in [`docs/SETUP.md`](docs/SETUP
 `.env.example` also lists server-only values (`ONE_LOVE_SUPABASE_SERVICE_ROLE_KEY`, `ONE_LOVE_SUPABASE_JWT_SECRET`, `ONE_LOVE_POSTGRES_URL`, `ONE_LOVE_POSTGRES_URL_NON_POOLING`) for migrations or future Edge Functions. The app doesn't read them.
 
 > [!WARNING]
-> `vite.config.ts` sets `envPrefix` to `VITE_`, `NEXT_PUBLIC_` and `ONE_LOVE_`, so any variable with those prefixes **can** be read by client code and end up in the bundle if referenced. Today only the two `VITE_` values are used. Keep service-role keys and database URLs out of the build environment, or drop `ONE_LOVE_` from `envPrefix`.
+> `vite.config.ts` sets `envPrefix` to `VITE_`, so any `VITE_` variable **can** be read by client code and end up in the bundle if referenced. Never give a service-role key or database URL a `VITE_` name.
 
 ## Project structure
 
@@ -250,7 +250,8 @@ one-love-football/
 │   ├── types.ts               row types and enums mirroring the schema
 │   └── index.css              the whole stylesheet
 └── supabase/
-    ├── migrations/            001–017: enums, tables, indexes, RLS, storage buckets
+    ├── migrations/            001–018: enums, tables, indexes, RLS, storage buckets
+    ├── tests/                 SQL checks for the row-level security rules
     └── schema.sql             001–014 in one file
 ```
 

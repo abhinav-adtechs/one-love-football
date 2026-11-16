@@ -21,9 +21,10 @@ In the **SQL editor**, run each file in [`supabase/migrations/`](../supabase/mig
 | `015_add_ledger_update_policy.sql`         | Lets hosts and admins approve or reject ledger entries                                                                                                                           |
 | `016_match_roster_payment_tracking.sql`    | `amount_collected` and `paid_at` on the roster for touchline cash; `venue_id` optional on turf payments                                                                          |
 | `017_expand_game_format_enum.sql`          | 9v9, 10v10 and the three-team formats                                                                                                                                            |
+| `018_harden_rls_policies.sql`              | Tighter row-level security: admin-only role, ban and phone changes; players submit only pending ledger entries; hosts record roster payments and attendance                      |
 
 > [!TIP]
-> `supabase/schema.sql` is `001` to `014` in a single file. If you paste that instead, run `015`, `016` and `017` after it.
+> `supabase/schema.sql` is `001` to `014` in a single file. If you paste that instead, run `015` to `018` after it.
 
 ## 3. Turn on phone sign-in
 
@@ -68,7 +69,7 @@ npm run dev      # http://localhost:5173
 Sign in with your phone number, enter the code, and set your name, jersey number and positions.
 
 > [!WARNING]
-> `.env` is gitignored; keep it that way. Only the two `VITE_` values belong in it for the app. Never put the service-role key or a database URL in a variable starting `VITE_`, `NEXT_PUBLIC_` or `ONE_LOVE_`: `vite.config.ts` makes all three readable by client code.
+> `.env` is gitignored; keep it that way. Only the two `VITE_` values belong in it for the app. Never put the service-role key or a database URL in a variable starting `VITE_`: `vite.config.ts` makes those readable by client code.
 
 ## 7. Deploy to Vercel
 

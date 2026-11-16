@@ -12,3 +12,6 @@ dist/
 # Editor / OS
 .DS_Store
 *.local
+
+# Supabase CLI cache
+supabase/.temp/
