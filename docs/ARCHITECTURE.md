@@ -47,7 +47,7 @@ src/main.tsx ── BrowserRouter ── AuthProvider ── App (routes)
 
 ## Data model
 
-Migrations live in [`supabase/migrations/`](../supabase/migrations) and are applied in order (`001`–`017`). TypeScript mirrors of the rows and enums are in `src/types.ts`.
+Migrations live in [`supabase/migrations/`](../supabase/migrations) and are applied in order (`001`–`018`). TypeScript mirrors of the rows and enums are in `src/types.ts`.
 
 ```mermaid
 erDiagram

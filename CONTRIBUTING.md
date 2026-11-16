@@ -31,7 +31,7 @@ npm run dev              # http://localhost:5173
 
 - **Screens** in `src/pages/`, **data access** in `src/hooks/`, **pure helpers** in `src/lib/`.
 - **Money** is always an integer number of paise. Convert at the edges with `rupeesToPaise` and `formatPaise` from `src/lib/currency.ts`.
-- **Database changes** are a new numbered file in `supabase/migrations/` (the next is `018_…`). Never edit a migration that's been applied. Update `src/types.ts` to match.
+- **Database changes** are a new numbered file in `supabase/migrations/` (the next is `019_…`). Never edit a migration that's been applied. Update `src/types.ts` to match.
 - **Permissions** belong in row-level security, not only in `RoleGate`. If you add a table, add its policies in the same migration.
 - **Phone numbers** go through `normalizePhone` and `phonesMatch` in `src/lib/parseWhatsApp.ts`.
 
