@@ -7,6 +7,7 @@ import type { ParsedMatch, ParsedPlayer } from '../lib/parseWhatsApp'
 import type { GameFormat, Profile } from '../types'
 import RoleGate from '../components/RoleGate'
 import { rupeesToPaise } from '../lib/currency'
+import { buildRosterRows } from '../lib/roster'
 
 const FORMAT_PLAYER_COUNT: Record<GameFormat, number> = {
   '5v5': 10, '6v6': 12, '7v7': 14, '8v8': 16, '9v9': 18, '10v10': 20, '11v11': 22,
@@ -111,7 +112,6 @@ function CreateContent() {
     setSaving(true)
 
     const feePaise = rupeesToPaise(parseFloat(feeRupees) || 0)
-    const confirmedPlayers = players.filter(p => p.confirmed)
     const turfLabel = TURFS.find(t => t.value === turf)?.label ?? turf
 
     // 1. Create match
@@ -140,25 +140,7 @@ function CreateContent() {
     const matchId = matchData.id
 
     // 2. Create roster entries
-    const rosterRows = confirmedPlayers.map((p, idx) => {
-      const isPlusOne = p.plusOneOf !== null
-      // For +1s, attribute invited_by to the parent player's profile (if matched), else host
-      const parentProfile = isPlusOne && p.plusOneOf !== null
-        ? players[p.plusOneOf]?.matchedProfile ?? null
-        : null
-      return {
-        match_id: matchId,
-        profile_id: isPlusOne ? null : (p.matchedProfile?.id ?? null),
-        guest_name: isPlusOne ? '+1' : (p.matchedProfile ? null : (p.name || 'Guest')),
-        guest_phone: isPlusOne ? null : (p.matchedProfile ? null : p.phone),
-        source: isPlusOne ? 'guest_plus_one' : (p.matchedProfile ? 'community' : 'external'),
-        status: 'confirmed',
-        position: idx + 1,
-        amount_collected: 0,
-        paid_at: null,
-        invited_by: parentProfile?.id ?? session!.user.id,
-      }
-    })
+    const rosterRows = buildRosterRows(players, matchId, session!.user.id)
 
     const { error: rosterError } = await supabase
       .from('match_roster')

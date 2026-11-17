@@ -213,7 +213,9 @@ export function parseWhatsApp(text: string): ParsedMatch {
   for (const line of playerLines) {
     const player = parsePlayerLine(line)
     if (!player) continue
-    if (player.isGuest && /^\+1|plus\s*one/i.test(player.raw)) {
+    // Test the text after the list number: the raw line starts with "3." so ^\+1 can't match it
+    const body = PLAYER_LINE_RE.exec(player.raw)?.[2] ?? player.raw
+    if (player.isGuest && /^\+1|plus\s*one/i.test(body)) {
       // Pure +1 with no meaningful name — attribute to previous main player
       player.plusOneOf = lastMainPlayerIdx
     } else {
